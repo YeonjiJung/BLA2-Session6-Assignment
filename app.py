@@ -231,15 +231,15 @@ dcc.Slider(id='paper6-slider',
 
         showCurrentValue=True,
 
-        color={"gradient":True,"ranges":{"red":[0,0.4],"yellow":[0.4,0.7],"green":[0.7,1]}},
+        color={"gradient":True,"ranges":{"red":[0,40],"yellow":[40,70],"green":[70,100]}},
 
-        label="Probability",
+        label="Paper 7 Score",
 
-        max=1,
+        max=100,
 
         min=0,
 
-        value=1
+        value=60
 
     ),
 
