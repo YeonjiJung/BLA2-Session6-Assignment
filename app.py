@@ -30,7 +30,7 @@ df = pd.read_csv("Performance_Data.csv")
 
 X = df[df.columns.difference(['Paper 7'])]
 
-Y=df['Paper 7']
+Y = df['Paper 7']
 
 
 
@@ -76,7 +76,7 @@ app.layout = html.Div([
 
     html.Div([  
 
-    html.Label('Paper 1'),
+    html.Label('Paper 1 Score'),
 
     dcc.Slider(id='paper1-slider',
 
@@ -100,7 +100,7 @@ app.layout = html.Div([
 
 html.Br(),
 
-html.Label('Paper 2'),
+html.Label('Paper 2 Score'),
 
 dcc.Slider(id='paper2-slider',
 
@@ -124,7 +124,7 @@ dcc.Slider(id='paper2-slider',
 
 html.Br(),
 
-html.Label('Paper 3'),
+html.Label('Paper 3 Score'),
 
 dcc.Slider(id='paper3-slider',
 
@@ -148,7 +148,7 @@ dcc.Slider(id='paper3-slider',
 
 html.Br(),
 
-html.Label('Paper 4'),
+html.Label('Paper 4 Score'),
 
 dcc.Slider(id='paper4-slider',
 
@@ -172,7 +172,7 @@ dcc.Slider(id='paper4-slider',
 
 html.Br(),
 
-html.Label('Paper 5'),
+html.Label('Paper 5 Score'),
 
 dcc.Slider(id='paper5-slider',
 
@@ -196,7 +196,7 @@ dcc.Slider(id='paper5-slider',
 
 html.Br(),
 
-html.Label('Paper 6'),
+html.Label('Paper 6 Score'),
 
 dcc.Slider(id='paper6-slider',
 
@@ -227,7 +227,7 @@ dcc.Slider(id='paper6-slider',
 
     daq.Gauge(
 
-        id='paper7-prediction',
+        id='paper7-gauge',
 
         showCurrentValue=True,
 
@@ -253,7 +253,7 @@ dcc.Slider(id='paper6-slider',
 
 @app.callback(
 
-    Output('paper7-prediction', 'value'),
+    Output('paper7-gauge', 'value'),
 
     [Input('paper1-slider', 'value'),
 
@@ -281,7 +281,7 @@ def update_output_div(paper1,
 
                       paper6):
 
-   X_case =pd.DataFrame({'Paper 1':[paper1],'Paper 2':[paper2],'Paper 3':[paper3],'Paper 4':[paper4],'Paper 5':[paper5],'Paper 6':[paper6]})
+   X_case = pd.DataFrame({'Paper 1':[paper1],'Paper 2':[paper2],'Paper 3':[paper3],'Paper 4':[paper4],'Paper 5':[paper5],'Paper 6':[paper6]})
 
    Y_case = regressor.predict(X_case)
 
